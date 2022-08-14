@@ -28,7 +28,7 @@ vol_down = GtkButton("Volume down");
 
 # setup start callback
 signal_connect(start, "clicked") do widget, others...
-    spec = realtime_input(duration, volume, instrument);
+    spec = realtime_input(duration, volume);
     map = heatmap(spec.time, spec.freq, spec.power, xguide="Time [s]", yguide="Frequency [Hz]", ylims=(0,1000));
     savefig(map, "images/heatmap.png");
     set_gtk_property!(plot, :file, "images/heatmap.png");
